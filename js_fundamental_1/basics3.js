@@ -56,4 +56,16 @@ console.log(evenScores)
 let newFilterEvenScores = scores.filter(scores=>scores%2==0)
 console.log(newFilterEvenScores)
 
-console.log("A sample print")
+//create a new array with even numbers of scores and multiply each value with 3 and sum them array
+// [12,14,16,18]=> [36,42,48,54]
+
+//**Map
+let mappedArray=newFilterEvenScores.map(scores=>scores*3)
+console.log(mappedArray)
+let totalValue=mappedArray.reduce((sum,value)=>sum+value,0)
+console.log(totalValue)
+
+// Write above 3 functions in one line 
+let scores1= [12,13,14,16,18]
+let sumTotal=scores1.filter(scores1=>scores1%2==0).map(scores1=>scores1*3).reduce((sum,value)=>sum+value,0)
+console.log(sumTotal)
