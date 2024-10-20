@@ -76,4 +76,57 @@ let fruits=["Banana","Mango","Apple","Lichi","Guava"]
 console.log(fruits.sort())// Ascending sort
 console.log(fruits.reverse()) //Descending sort
 
-let 
+let numbers=[10,45,2,14,25]
+console.log(numbers.sort())
+
+/**
+ * Sorting Process for Array: [10, 45, 2, 14, 25]
+ * Using comparison function: (a, b) => a - b
+ *
+ * Initial Array: [10, 45, 2, 14, 25]
+ *
+ * 1. Compare 10 and 45:
+ *    Calculation: 10 - 45 = -35
+ *    Result: -35 (10 comes before 45)
+ *
+ * 2. Compare 10 and 2:
+ *    Calculation: 10 - 2 = 8
+ *    Result: 8 (2 comes before 10)
+ *
+ * 3. Compare 45 and 2:
+ *    Calculation: 45 - 2 = 43
+ *    Result: 43 (2 comes before 45)
+ *
+ * 4. Compare 45 and 14:
+ *    Calculation: 45 - 14 = 31
+ *    Result: 31 (14 comes before 45)
+ *
+ * 5. Compare 45 and 25:
+ *    Calculation: 45 - 25 = 20
+ *    Result: 20 (25 comes before 45)
+ *
+ * 6. Compare 10 and 14:
+ *    Calculation: 10 - 14 = -4
+ *    Result: -4 (10 comes before 14)
+ *
+ * 7. Compare 14 and 2:
+ *    Calculation: 14 - 2 = 12
+ *    Result: 12 (2 comes before 14)
+ *
+ * 8. Compare 14 and 25:
+ *    Calculation: 14 - 25 = -11
+ *    Result: -11 (14 comes before 25)
+ *
+ * 9. Compare 10 and 25:
+ *    Calculation: 10 - 25 = -15
+ *    Result: -15 (10 comes before 25)
+ *
+ * 10. Compare 2 and 14:
+ *     Calculation: 2 - 14 = -12
+ *     Result: -12 (2 comes before 14)
+ *
+ * Final Sorted Array: [2, 10, 14, 25, 45]
+ */
+
+console.log(numbers.sort((a,b)=>a-b))
+console.log(numbers) 
