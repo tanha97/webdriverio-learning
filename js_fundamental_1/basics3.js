@@ -55,3 +55,5 @@ console.log(evenScores)
 
 let newFilterEvenScores = scores.filter(scores=>scores%2==0)
 console.log(newFilterEvenScores)
+
+console.log("A sample print")
