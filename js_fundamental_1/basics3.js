@@ -69,3 +69,11 @@ console.log(totalValue)
 let scores1= [12,13,14,16,18]
 let sumTotal=scores1.filter(scores1=>scores1%2==0).map(scores1=>scores1*3).reduce((sum,value)=>sum+value,0)
 console.log(sumTotal)
+
+// Sorting function
+
+let fruits=["Banana","Mango","Apple","Lichi","Guava"]
+console.log(fruits.sort())// Ascending sort
+console.log(fruits.reverse()) //Descending sort
+
+let 
