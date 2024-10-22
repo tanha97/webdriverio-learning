@@ -8,9 +8,9 @@ let person=
 
 console.log(person.firstName) //dot notation
 console.log(person['lastName'])// Array notation
-console.log(person.firstName= "Barsha") // update properties
+console.log(person.firstName= "Barsha") // Update properties
 person.gender="Female"
 console.log(person) //Add properties
 delete person.gender
-console.log(person)
+console.log(person) // Delete properties
 
