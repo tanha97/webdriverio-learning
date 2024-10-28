@@ -18,8 +18,8 @@ class Person {
     console.log(this.firstName, this.lastName)
   }
 }
-let person = new Person("Md.Amirul", "Islam")
-let person1 = new Person("Sumaiya", "Shoily")
+let person = new Person('Md.Amirul', 'Islam')
+let person1 = new Person('Sumaiya', 'Shoily')
 
 person.fullName()
 
@@ -32,28 +32,29 @@ console.log(person2.age)
 
 person.age = 30
 
-console.log("after change person age")
+console.log('after change person age')
 console.log(person.age)
 console.log(person2.age)
 
 //Example-2
 
-class Mobile {
-    constructor(brand_name, display, ram) {
-      this.brand = brand_name
-      this.display = display
-      this.ram = ram
-      this.created_at = new Date()
-    }
-    info(){
-      console.log(this.brand , this.display, this.ram)
-    }
+export class Mobile {
+  constructor(brand_name, display, ram) 
+  {
+    this.brand = brand_name
+    this.display = display
+    this.ram = ram
+    this.created_at = new Date()
   }
-  
-  let m1 = new Mobile('Samsung', 5.5, 6)
-  let m2 = new Mobile('Xiaomi', 5.57, 8)
-  
-  console.log(m1.created_at)
-  console.log(m2.created_at)
-  
-  m1.info()
+  info() {
+    console.log(this.brand, this.display, this.ram)
+  }
+}
+
+let m1 = new Mobile('Samsung', 5.5, 6)
+let m2 = new Mobile('Xiaomi', 5.57, 8)
+
+console.log(m1.created_at)
+console.log(m2.created_at)
+
+m1.info()
