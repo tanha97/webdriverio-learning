@@ -24,8 +24,9 @@ describe('Ecommerce Testing', async () =>
     
       await expect(text).toBe('password or code is incorrect, you have 4 remaining chances')
       await $('.text-primary').waitForDisplayed()
-      //textContaining
 
+      //textContaining
+      
       await expect($('.flex.gap-1.align-baseline.text-primary')).toHaveText("Don't have an account?\nSign up")
       
       })
@@ -39,7 +40,9 @@ describe('Ecommerce Testing', async () =>
         let signIn= $('.vs-btn.vs-btn-primary')
         await signIn.waitForClickable({ timeout: 5000 });
         await signIn.click()
-        // Wait until checkout button is displayed
+
+        // Wait until Hello text is displayed
+
         await $(".text-sm").waitForExist()
 
         await expect(browser).toHaveUrl(expect.stringContaining("dashboard"))
