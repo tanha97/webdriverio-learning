@@ -1,3 +1,5 @@
+let expectChai= require('chai').expect
+
 describe('Ecommerce Testing', async () => 
 {
 
@@ -48,7 +50,12 @@ describe('Ecommerce Testing', async () =>
     await browser.pause(3000)
 
     // Check by default correct text is selected
-    console.log(await dropdown.getText()) // Can use getValue function to check selected text
+    console.log(await dropdown.getValue()) // Can use getText function to check selected text
+
+    // Chai assertions
+    await expectChai(await dropdown.getValue()).to.equal("stud")
+
+    
 
 
 

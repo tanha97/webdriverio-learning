@@ -17,5 +17,8 @@
     "@wdio/visual-service": "^6.2.1",
     "mocha": "^10.7.3",
     "webdriverio": "^9.2.4"
+  },
+  "dependencies": {
+    "chai": "^5.1.2"
   }
 }
