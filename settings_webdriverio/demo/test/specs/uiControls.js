@@ -34,12 +34,12 @@ describe('Ecommerce Testing', async () =>
     // await modal.waitForDisplayed()
     // await $("#okayBtn").click()
 
-    // //console.log(await $$(".customradio")[1].$("input").isSelected())
-    // // Validate pop not shown up when select admin button
+    // console.log(await $$(".customradio")[1].$("input").isSelected())
+    // //Validate pop not shown up when select admin button
     // await $(".customradio")[0].$("span").click()
-    // await expect(modal).not.toBeDisplayed()
+    //    await expect(modal).not.toBeDisplayed()
 
-    // Static dropdown select
+    //Static dropdown select
 
     let dropdown= await $("select.form-control") // Always use select in a class to select dropdown
     await dropdown.selectByAttribute("value","teach")
@@ -49,11 +49,12 @@ describe('Ecommerce Testing', async () =>
     await dropdown.selectByIndex(0)
     await browser.pause(3000)
 
+    console.log("*********************\n\n")
     // Check by default correct text is selected
-    console.log(await dropdown.getValue()) // Can use getText function to check selected text
-
+    console.log(await dropdown.getText()) // Can use getText function to check selected text
+    
     // Chai assertions
-    await expectChai(await dropdown.getValue()).to.equal("stud")
+    await expectChai(await dropdown.getText()).to.equal("Student")
 
     
 
