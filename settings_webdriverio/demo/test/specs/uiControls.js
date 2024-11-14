@@ -1,3 +1,5 @@
+const { url } = require('webdriverio/build/commands/browser')
+
 let expectChai= require('chai').expect
 
 describe('Ecommerce Testing', async () => 
@@ -56,12 +58,17 @@ describe('Ecommerce Testing', async () =>
     // Chai assertions
     await expectChai(await dropdown.getText()).to.equal("Student")
 
-    
+    })
+
+    if('Dynamic dropdown controls',async ()=>
+    {
+
+     browser.url('https://rahulshettyacademy.com/AutomationPractice/')
+     $('#autocomplete').setValue('ind')
+     browser.pause(3000)
+     let items= $$('')
 
 
+    })
 
-
-  })
- 
-  
 })
