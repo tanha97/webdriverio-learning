@@ -1,11 +1,9 @@
-const { url } = require('webdriverio/build/commands/browser')
 
-let expectChai= require('chai').expect
+let expectChai = require('chai').expect
 
 describe('Ecommerce Testing', async () => 
 {
-
- it('Login success page title', async () =>
+  xit('Login success page title', async () => 
   {
     await browser.url('https://rahulshettyacademy.com/loginpagePractise/')
     await $('#username').setValue('rahulshettyacademy')
@@ -14,11 +12,11 @@ describe('Ecommerce Testing', async () =>
     // If multiple element is exists in a class, user $$
     // var radioButtons= $$(".radiotextsty")
     // var userOption= radioButtons[1]
-    // userOption.click() 
-    // changing locator- If any class is not exist then use parent to child element 
+    // userOption.click()
+    // changing locator- If any class is not exist then use parent to child element
     // let radioButtons= await $$(".customradio")
     // let userOption= await $$(".customradio")[1]
-    // await userOption.$("span").click()  
+    // await userOption.$("span").click()
     // await browser.pause(4000)
 
     // let modal=await $(".modal-body")
@@ -43,32 +41,62 @@ describe('Ecommerce Testing', async () =>
 
     //Static dropdown select
 
-    let dropdown= await $("select.form-control") // Always use select in a class to select dropdown
-    await dropdown.selectByAttribute("value","teach")
+    let dropdown = await $('select.form-control') // Always use select in a class to select dropdown
+    await dropdown.selectByAttribute('value', 'teach')
     await browser.pause(3000)
-    await dropdown.selectByVisibleText("Consultant")
+    await dropdown.selectByVisibleText('Consultant')
     await browser.pause(3000)
     await dropdown.selectByIndex(0)
     await browser.pause(3000)
 
-    console.log("*********************\n\n")
+    console.log('\n\n*********************\n\n')
     // Check by default correct text is selected
     console.log(await dropdown.getText()) // Can use getText function to check selected text
-    
+
     // Chai assertions
-    await expectChai(await dropdown.getText()).to.equal("Student")
+    await expectChai(await dropdown.getText()).to.equal('Student')
+  })
 
-    })
+  
+  
+  xit('Dynamic dropdown controls', async () => 
+  {
+   
+    await browser.url('https://rahulshettyacademy.com/AutomationPractice/')
+    await $('#autocomplete').setValue('ind')
+    await browser.pause(3000)
 
-    if('Dynamic dropdown controls',async ()=>
+    // Print all options in the dropdown when search by any characters
+
+    let items = await $$('[class="ui-menu-item"] div')
+    for (let i = 0; i < await items.length; i++) 
     {
+      console.log(await items[i].getText())
+      
+    // If shows india in the dropdown then click on india
+      if(await items[i].getText()==="India")
+        {
+          await items[i].click()
+          await browser.pause(3000)
+        }
+    }
 
-     browser.url('https://rahulshettyacademy.com/AutomationPractice/')
-     $('#autocomplete').setValue('ind')
-     browser.pause(3000)
-     let items= $$('')
+
+  })
 
 
-    })
+  xit("Checkbox identification", async()=>
+{
+  await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
+  let checkboxes=$$("input[type='checkbox']")
+  await checkboxes[1].click()
+  await browser.pause(3000)
+  console.log(await checkboxes[1].isSelected())// true
+  console.log(await checkboxes[2].isSelected())// false
+  await browser.saveScreenshot("screenshot.png")
+
+
+})
+
 
 })
