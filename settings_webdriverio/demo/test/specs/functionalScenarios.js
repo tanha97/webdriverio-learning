@@ -56,11 +56,13 @@ describe('Functional Testing on Application', async () =>
         {
           await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
           await $("input[type='search']").setValue("tomato")
+          browser.pause(3000)
           let tableLocators= await $$("tr td:nth-child(1)")
           await expect(tableLocators).toBeElementsArrayOfSize({eq:1})
        //Should match the text what you input in the box
-          console.log("\n\n\n****************************************************\n\n\n")
+          console.log("\n\n\n********************************\n\n\n")
           console.log(await tableLocators[0].getText())
+          browser.pause(3000)
           await expect(tableLocators[0]).toHaveText("Tomato")
 
         })
