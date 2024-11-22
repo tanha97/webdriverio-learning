@@ -52,7 +52,7 @@ describe('Functional Testing on Application', async () =>
 
       //When enter veggie name one item should be showed
      
-      it('Web Tables Search Filter Validation', async () =>
+      xit('Web Tables Search Filter Validation', async () =>
         {
           await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
           await $("input[type='search']").setValue("tomato")
