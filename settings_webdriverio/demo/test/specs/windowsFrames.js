@@ -23,17 +23,18 @@ describe("Windows and Frames Miscellanous", async()=>
 
    })
 
-   it("Frames swiches", async()=>
+   xit("Frames switches", async()=>
     {
       await browser.url("https://rahulshettyacademy.com/AutomationPractice/")
       await $("#mousehover").scrollIntoView()
       console.log(await $$("a").length)//27
       browser.switchFrame(await $$("[id='courses-iframe']"))
       console.log(await $("=Courses").getTagName())
-      console.log(await $$("a")).length// 118
+      console.log(await $$("a").length)// 118
+      await browser.switchFrame(null)
+      console.log(await $$("a").length)//27
 
-
-   })
+    })
 
    
 })

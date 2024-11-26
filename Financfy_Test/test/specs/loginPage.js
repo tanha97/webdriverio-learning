@@ -1,8 +1,8 @@
-describe('Ecommerce Testing', async () => 
+describe('Financfy Automation Testing', async () => 
     {
       xit('Login failed page', async () => 
       {
-        //webdriverio Async (Sync)
+      
         await browser.url('https://accounts.financfy.com/')
         await browser.pause(3000); // pauses for 3 seconds
         console.log("\n\n==================================\n")

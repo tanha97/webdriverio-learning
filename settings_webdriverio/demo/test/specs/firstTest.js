@@ -9,7 +9,7 @@ describe('Ecommerce Testing', async () =>
     await $('input[name=username]').setValue('rahulshettyacademy')
     await browser.pause(3000)
     await $('#username').setValue('rahulshettyacademy two')
-    //await browser.pause(3000)
+    await browser.pause(3000)
     await $('#password').setValue('learning')
     await $('#signInBtn').click()
 
