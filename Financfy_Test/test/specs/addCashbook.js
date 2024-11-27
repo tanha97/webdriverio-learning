@@ -2,8 +2,8 @@ describe('Financfy Automation Test', async () =>
     {
         it("Create a New Cashbook", async()=>
         {
-        await browser.url('https://accounts.financfy.com/')
-        await $('input[name=mobileNumber]').setValue('01521257203')
+        await browser.url('http://invoice.staging.financfy.com:3052/auth/login?callbackUrl=%2Fdashboard')
+        await $('input[name=mobileNumber]').setValue('01500000000')
         await browser.pause(3000)
         await $('input[name=password]').setValue('A12345678a')
         let signIn= $('.vs-btn.vs-btn-primary')

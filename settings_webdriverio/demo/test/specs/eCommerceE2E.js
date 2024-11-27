@@ -55,8 +55,8 @@ describe('Ecommerce Testing', async () =>
         await $(".lds-ellipsis").waitForExist({reverse:true})
         await $("=India").click()
         await $("input[type=submit]").click()
-        await expect($(".alert-success")).toHaveText("Success! Thank you! Your order will be delivered in next few weeks :-).")
-
+        await expect($(".alert-dismissible")).toHaveText(("Success! Thank you! Your order will be delivered in next few weeks :-)."))
+          // talk to nahid why error showing
       })
 
 
