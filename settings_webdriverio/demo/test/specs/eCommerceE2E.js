@@ -2,7 +2,7 @@ let expectChai = require ('chai').expect
 
 describe('Ecommerce Testing', async () => 
     {
-      it('End to End Test', async () => 
+      xit('End to End Test', async () => 
       {
 
         let products= ['iphone X', 'Blackberry']

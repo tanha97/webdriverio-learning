@@ -20,6 +20,11 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
+ 
+  suites:{
+      debitCard: ["test/specs/uiControls.js","test/specs/windowsFrames.js"],
+      creditCard: ['test/specs/eCommerceE2E.js']
+},
   specs: [
     './test/specs/**/*.js',
     // 'test/specs/poTest.js'
@@ -82,13 +87,13 @@ exports.config = {
   //
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
-  bail: 0,
+  bail: 3,
   //
   // Set a base URL in order to shorten url command calls. If your `url` parameter starts
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  // baseUrl: 'http://localhost:8080',
+  baseUrl: 'https://rahulshettyacademy.com',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,

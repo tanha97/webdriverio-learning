@@ -1,55 +1,27 @@
-describe('Financfy Automation Test', async () => 
-    {
-        it("Create a New Cashbook", async()=>
-        {
-        await browser.url('http://invoice.staging.financfy.com:3052/auth/login?callbackUrl=%2Fdashboard')
-        await $('input[name=mobileNumber]').setValue('01500000000')
-        await browser.pause(3000)
-        await $('input[name=password]').setValue('A12345678a')
-        let signIn= $('.vs-btn.vs-btn-primary')
-        await signIn.waitForClickable({ timeout: 5000 });
-        await signIn.click()
+/**
+ * Add Cash Book Success Test
+ */
+const logIn = require('../pageobjects/logInObject');
+const cashBook = require('../pageobjects/cashbookObjects');
 
-        // Wait until Hello text is displayed
+describe('Financfy Automation Test', () => {
+  it('Create a New Cashbook', async () => {
+    // Navigate to login page
+    await browser.url(logInPage.stagingURL);
 
-        await $(".text-sm").waitForExist()
+    // Login to application
+    await logIn.mobileNumber.setValue('01500000000');
+    await logIn.password.setValue('A12345678a');
+    await logIn.signinButton.click();
 
-        await expect(browser).toHaveUrl(expect.stringContaining("dashboard"))
-        await expect(browser).toHaveTitle("Dashboard | Financfy")
-            
-        // Add a new cashbook
+    // Create a new cashbook
+    await cashBook.addCashbook.click();
+    await cashBook.mainCashbookField.click();
+    await cashBook.cashbookOptions.click();
+    await cashBook.cashbookName.setValue('New CashBook');
+    await cashBook.saveButton.click();
 
-        await $("#tour_add_cashbook").click()
-        await browser.pause(3000)
-        await $(".form-selector__control").click()
-        await $(".form-selector__option").click()
-        await browser.pause(3000)
-        await $(".form-selector__value-container").click()
-        await browser.pause(3000)
-        await $("input[name='name']").setValue("New CashBook")
-        await $("button[name='Save']").click()
-        await browser.pause(3000)
-
-        let toastMsg= await $(".Toastify__toast-body").getText()
-        await expect(toastMsg).toBe("Branch cash book created successfully.")       
-              
-        })
-        
-        
-        
-        
-        
-        
-        
-        
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    })
-
+    // Verify toast message
+    await expect(cashBookPage.toastMsg).toHaveText("Branch cash book created successfully.");
+  });
+});

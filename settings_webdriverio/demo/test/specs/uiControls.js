@@ -59,10 +59,10 @@ describe('Ecommerce Testing', async () =>
 
   
   
-  xit('Dynamic dropdown controls', async () => 
+  xit('Dynamic dropdown controls-Smoke Testing', async () => 
   {
    
-    await browser.url('https://rahulshettyacademy.com/AutomationPractice/')
+    await browser.url('/AutomationPractice/')
     await $('#autocomplete').setValue('ind')
     await browser.pause(3000)
 

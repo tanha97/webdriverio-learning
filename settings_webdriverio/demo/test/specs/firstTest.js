@@ -1,9 +1,9 @@
 describe('Ecommerce Testing', async () => 
 {
-  xit('Login failed page', async () => 
+  xit('Login failed page-Smoke Testing', async () => 
   {
     //webdriverio Async (Sync)
-    await browser.url('https://rahulshettyacademy.com/loginpagePractise/')
+    await browser.url('/loginpagePractise/')
     console.log(await browser.getTitle())
 
     await $('input[name=username]').setValue('rahulshettyacademy')

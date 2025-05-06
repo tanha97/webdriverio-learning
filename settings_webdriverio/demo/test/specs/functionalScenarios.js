@@ -27,10 +27,10 @@ describe('Functional Testing on Application', async () =>
       })
 
       
-      xit('Web Tables Sorting Validation', async () =>
+      xit('Web Tables Sorting Validation-Smoke Testing', async () =>
       {
 
-        await browser.url("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+        await browser.url("/seleniumPractise/#/offers")
         await $("tr th:nth-child(1)").click()
         await browser.pause(3000)
         // Retrive list of veg/fruit name into array A
