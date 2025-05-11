@@ -19,6 +19,7 @@
     "webdriverio": "^9.2.4"
   },
   "dependencies": {
-    "chai": "^5.1.2"
+    "chai": "^5.1.2",
+    "chromedriver": "^135.0.4"
   }
 }

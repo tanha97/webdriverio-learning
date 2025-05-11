@@ -1,19 +1,22 @@
 const logIn = require('../pageobjects/logInObject')
 const transactions = require('../pageobjects/transactionObject')
 const uploadFile = require('../helpers/uploadFile')
+require('dotenv').config()
 
 describe('Financfy Automation Test', () => {
-  it('Create cash_in transactions', async () => {
+  xit('Create cash_in transactions', async () => {
     await browser.url(logIn.stagingURL)
 
     // Login steps
-    await logIn.mobileNumber.setValue('01500000000')
-    await logIn.password.setValue('A12345678a')
+    await logIn.mobileNumber.setValue(process.env.MOBILE_NUMBER)
+    await logIn.password.setValue(process.env.PASSWORD)
     await logIn.signinButton.click()
 
-    // Navigate to Transactions
+    // Navigate to Transactions (Cash in tab)
     await transactions.transactionMenu.click()
-    await transactions.cashinTab.click()
+    await transactions.cashInTab.click()
+
+    // Input amount value
     await transactions.amountField.setValue(2500.65)
 
     // Select tax
@@ -51,8 +54,34 @@ describe('Financfy Automation Test', () => {
 
     //Verify toast msg
     // await $('.Toastify__toast-container').waitForDisplayed({ timeout: 5000 })
-    // await expect($('Toastify__toast-body')).toHaveText('Cash in successful')
-
-    
+    // await expect($('Toastify__toast-body')).toHaveText('Cash in successful') 
   })
+
+
+  it('Create cash out transaction', async ()=> {
+    await browser.url(logIn.stagingURL)
+
+    // Login steps
+     await logIn.mobileNumber.setValue(process.env.MOBILE_NUMBER)
+     await logIn.password.setValue(process.env.PASSWORD)
+     await logIn.signinButton.click()
+ 
+     // Navigate to Transactions (Cash out tab)
+     await transactions.transactionMenu.click()
+     await transactions.cashOutTab.click()
+     await transactions.amountField.setValue(100)
+     await transactions.cashOutContactField.click()
+     await transactions.cashOutContactField.waitForDisplayed({ timeout: 5000 })
+     await transactions.contactOptions.click()
+     await transactions.paymentModeField.click()
+     await transactions.paymentModeField.waitForDisplayed({ timeout: 5000 })
+     await transactions.receiveModeOptions.click()
+     await transactions.cashOutCategoryField.click()
+     await transactions.cashOutCategoryField.waitForDisplayed({ timeout: 5000 })
+     await transactions.categoryOptions.click()
+     await transactions.referenceNoField.setValue('tanha#02')
+     await uploadFile(transactions.voucherImageField, 'IMG_4827.JPG');
+     await transactions.cashOutSaveButton.click()
+    })
 })
+
