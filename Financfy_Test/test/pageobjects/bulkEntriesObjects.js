@@ -7,7 +7,7 @@ class BulkEntries {
       'body > div:nth-child(1) > main:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > form:nth-child(2) > div:nth-child(2) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > div:nth-child(1) input[type="text"]'
     )
   }
-  get typeField() {
+  get typeField1() {
     return $(
       "(//div[contains(@class,'mb-5 flex flex-col mb-2!')])[3]//div[@class='standard-select-dropdown__value-container css-1p7kgf6']"
     )
@@ -22,7 +22,7 @@ class BulkEntries {
       "//div[@class='standard-select-dropdown__menu-list css-xui19z']//div[text()='Cash out']"
     )
   }
-  get contactField() {
+  get contactField1() {
     return $(
       "(//div[contains(@class,'mb-5 flex flex-col mb-2!')])[4]//div[@class='standard-select-dropdown__value-container css-1p7kgf6']"
     )
@@ -32,7 +32,7 @@ class BulkEntries {
       '//div[contains(@class,"standard-select-dropdown__option")]//span[text()="Alina"]'
     )
   }
-  get categoryField() {
+  get categoryField1() {
     return $(
       '(//div[contains(@class,"mb-5 flex flex-col mb-2!")])[5]// div[@class="standard-select-dropdown__value-container css-1p7kgf6"]'
     )
@@ -42,7 +42,7 @@ class BulkEntries {
       '//div[contains(@class,"standard-select-dropdown__option")]//span[text()="Furniture"]'
     )
   }
-  get paymentMode() {
+  get paymentMode1() {
     return $(
       '(//div[contains(@class,"mb-5 flex flex-col mb-2!")])[6]//div[@class="standard-select-dropdown__value-container css-1p7kgf6"]'
     )

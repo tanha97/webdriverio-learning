@@ -6,7 +6,7 @@ class CashInRequest {
   }
   get cashbookList() {
     return $(
-      "//div[@class='simple-selector__menu-list css-hh161']//div[contains(text(), \"bappy's cashbook\")]"
+      "//div[@class='simple-selector__menu-list css-hh161']//div[contains(text(), \"Autonemo Branch\")]"
     )
   }
   get cashInRequestTab() {
@@ -36,6 +36,12 @@ class CashInRequest {
   }
   get saveButton() {
     return $("//button[@id='tour_save@sent']")
+  }
+  get pendingText(){
+    return  $("//div[@class='filter-select__menu-list css-xui19z']//div[text()='Pending']")
+  }
+  get statusElements(){
+    return $('//td/div[contains(text(), "Pending")]')
   }
 }
 module.exports = new CashInRequest()

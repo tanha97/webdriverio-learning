@@ -1,6 +1,6 @@
 class LogIn {
   get stagingURL() {
-    return 'http://invoice.staging.financfy.com:3052/auth/login?callbackUrl=%2Fdashboard'
+    return 'http://invoice.staging.financfy.com:3052'
   }
   get mobileNumber() {
     return $('input[name=mobileNumber]')
@@ -9,14 +9,12 @@ class LogIn {
     return $('input[name=password]')
   }
   get signinButton() {
-    return $('.vs-btn.vs-btn-primary')
+    return $("//button[@type='submit']")
   }
-  get toastText() {
-    return $('.Toastify__toast-body')
-  }
+  
   get helloText() {
     return $('.text-black.font-semibold.text-sm.leading-none')
   }
 }
 module.exports = new LogIn()
-//Toastify__toast-container Toastify__toast-container--top-right font-Metropolis simple-toast
+

@@ -32,6 +32,25 @@ class CashTransfer {
   get saveButton() {
     return $("button[type='submit']")
   }
+  get editText(){
+    return $("//button[normalize-space()='Edit']")
+  }
+  get deleteText(){
+    return $("//button[normalize-space()='Delete']")
+  }
+  get toastMsg(){
+    return $("//div[contains(@class,'Toastify')]") 
+  }
+  get deleteModalButton(){
+    return $("//div[@id='modal_root_1']//button[2]")
+  }
+get filterField(){
+    return $("//div[@class='filter-select__value-container filter-select__value-container--has-value css-1p7kgf6']")
+  }
+  get receivedText(){
+    return  $("//div[@class='filter-select__menu-list css-xui19z']//div[text()='Received']")
+  }
+  
 }
 
 module.exports = new CashTransfer()

@@ -1,31 +1,30 @@
-const logIn = require('../pageobjects/logInObject')
+const logIn=require('../helpers/logIn')
 const transactions = require('../pageobjects/transactionObject')
+const cashTransfer=require('../pageobjects/cashTransferObjects')
 const BulkEntries = require('../pageobjects/bulkEntriesObjects')
-require('dotenv').config()
+
 
 describe('Financfy Bulk Entries Page Test', () => {
   it('Bulk Entries transactions', async () => {
-    await browser.url(logIn.stagingURL)
+    await logIn()
 
-    // Login steps
-    await logIn.mobileNumber.setValue(process.env.MOBILE_NUMBER)
-    await logIn.password.setValue(process.env.PASSWORD)
-    await logIn.signinButton.click()
-    //1st row
+    //Navigate to Bulk Entries Tab
     await transactions.transactionMenu.click()
     await BulkEntries.bulkEntriesTab.click()
+
+    //Create Bulk Entries(1st row)
     await BulkEntries.amountField1.setValue(112.45)
-    await BulkEntries.typeField.click()
-    await BulkEntries.typeField.waitForDisplayed({ timeout: 5000 })
+    await BulkEntries.typeField1.click()
+    await BulkEntries.typeField1.waitForDisplayed({ timeout: 5000 })
     await BulkEntries.typeOptionsForCashIn.click()
-    await BulkEntries.contactField.click()
-    await BulkEntries.contactField.waitForDisplayed({ timeout: 5000 })
+    await BulkEntries.contactField1.click()
+    await BulkEntries.contactField1.waitForDisplayed({ timeout: 5000 })
     await BulkEntries.contactOptions.click()
-    await BulkEntries.categoryField.click()
-    await BulkEntries.categoryField.waitForDisplayed({ timeout: 5000 })
+    await BulkEntries.categoryField1.click()
+    await BulkEntries.categoryField1.waitForDisplayed({ timeout: 5000 })
     await BulkEntries.categoryOptions.click()
-    await BulkEntries.paymentMode.click()
-    await BulkEntries.paymentMode.waitForDisplayed({ timeout: 5000 })
+    await BulkEntries.paymentMode1.click()
+    await BulkEntries.paymentMode1.waitForDisplayed({ timeout: 5000 })
     await BulkEntries.paymentModeOptions.click()
     //2nd row
     await BulkEntries.amountField2.setValue(500)
@@ -57,5 +56,8 @@ describe('Financfy Bulk Entries Page Test', () => {
     await BulkEntries.paymentModeOptions.click()
     await BulkEntries.saveAndNewText.click()
     await browser.pause(5000)
+    await expect(cashTransfer.toastMsg).toBeDisplayed(
+      'Successfully added transactions entries'
+    )
   })
 })

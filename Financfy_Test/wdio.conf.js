@@ -1,9 +1,5 @@
 exports.config = {
-  //
-  // ====================
-  // Runner Configuration
-  // ====================
-  // WebdriverIO supports running e2e tests as well as unit and component tests.
+  
   runner: 'local',
   //
   // ==================
@@ -21,7 +17,7 @@ exports.config = {
   // of the config file unless it's absolute.
   //
   specs: [
-    './test/specs/**/advanceCashOut.js',
+    './test/specs/**/customers.js',
     // 'test/specs/poTest.js'
   ],
   // Patterns to exclude.
@@ -44,7 +40,7 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
