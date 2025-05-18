@@ -17,7 +17,7 @@ exports.config = {
   // of the config file unless it's absolute.
   //
   specs: [
-    './test/specs/**/customers.js',
+    './test/specs/**/sales/invoice.js',
     // 'test/specs/poTest.js'
   ],
   // Patterns to exclude.
@@ -49,7 +49,10 @@ exports.config = {
   capabilities: [
     {
       // capabilities for local browser web tests
-      browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+    args: ['--start-maximized'],
+  } // or "firefox", "microsoftedge", "safari"
     },
   ],
 

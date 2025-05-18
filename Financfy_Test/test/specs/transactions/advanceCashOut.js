@@ -1,9 +1,9 @@
-const logIn=require('../helpers/logIn')
-const transactions = require('../pageobjects/transactionObject')
-const cashTransfer = require('../pageobjects/cashTransferObjects')
-const cashInRequest = require('../pageobjects/cashinRequestObjects')
-const advanceCashOut = require('../pageobjects/advanceCashOutObjects')
-const uploadFile = require('../helpers/uploadFile')
+const logIn=require('../../helpers/logIn')
+const transactions = require('../../pageobjects/transactionObject')
+const cashTransfer = require('../../pageobjects/cashTransferObjects')
+const cashInRequest = require('../../pageobjects/cashinRequestObjects')
+const advanceCashOut = require('../../pageobjects/advanceCashOutObjects')
+const uploadFile = require('../../helpers/uploadFile')
 
 describe('Financfy Automation Test', () => {
   xit('Create Advance Cash Out', async () => {

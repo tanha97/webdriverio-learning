@@ -1,7 +1,7 @@
-const logIn= require('../helpers/logIn')
-const transactions = require('../pageobjects/transactionObject')
-const cashTransfer = require('../pageobjects/cashTransferObjects')
-const cashInRequest = require('../pageobjects/cashinRequestObjects')
+const logIn= require('../../helpers/logIn')
+const transactions = require('../../pageobjects/transactionObject')
+const cashTransfer = require('../../pageobjects/cashTransferObjects')
+const cashInRequest = require('../../pageobjects/cashinRequestObjects')
 
 
 describe('Financfy Automation Test', () => {

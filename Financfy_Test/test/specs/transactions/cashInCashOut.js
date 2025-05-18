@@ -1,6 +1,6 @@
-const logIn = require('../pageobjects/logInObject')
-const transactions = require('../pageobjects/transactionObject')
-const uploadFile = require('../helpers/uploadFile')
+const logIn = require('../../pageobjects/logInObject')
+const transactions = require('../../pageobjects/transactionObject')
+const uploadFile = require('../../helpers/uploadFile')
 require('dotenv').config()
 
 describe('Financfy Automation Test', () => {
