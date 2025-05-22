@@ -1,16 +1,16 @@
 const logIn = require('../../helpers/logIn')
 const invoice = require('../../pageobjects/sales/invoiceObject')
+const payment= require('../../pageobjects/sales/paymentObjects')
 
-describe('Sales Functionality Test', async () => {
+describe('Invoice Functionality Test', async () => {
   before(async () => {
     await logIn()
   })
   
-  it('Create a New Invoice Successfully', async () => {
+  xit('Create a New Invoice Successfully', async () => {
     await invoice.salesMenu.click()
-    await invoice.newTransactionButton.click()
-    await invoice.newTransactionButton.waitForDisplayed({ timeout: 5000 })
-    await invoice.transactionOptions.click()
+    await invoice.invoiceTab.click()
+    await invoice.createInvoiceButton.click()
     await invoice.customerField.click()
     await invoice.customerField.waitForDisplayed({ timeout: 5000 })
     await invoice.customerOptions.click()
@@ -30,4 +30,16 @@ describe('Sales Functionality Test', async () => {
     await browser.pause(5000)
     await expect(invoice.toastMsg).toHaveText('Invoice created successfully')
   })
+
+  it ('Invoice Delete', async ()=>{
+    await invoice.salesMenu.click()
+    await invoice.invoiceTab.click()
+    await invoice.invoiceActionButton.click()
+    await invoice.deleteText.click()
+    await invoice.confirmationModal.click()
+    await browser.pause(5000)
+    await expect(invoice.toastMsg).toHaveText('Invoice deleted successfully')
+  })
+
+  
 })

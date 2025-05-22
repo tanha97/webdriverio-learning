@@ -1,6 +1,6 @@
-const logIn = require('../helpers/logIn')
-const cashTransfer = require('../pageobjects/cashTransferObjects')
-const customer = require('../pageobjects/customerObject')
+const logIn = require('../../helpers/logIn')
+const cashTransfer = require('../../pageobjects/cashTransferObjects')
+const customer = require('../../pageobjects/customerObject')
 
 describe('Customer Functionality Test', async () => {
   before(async () => {
@@ -18,7 +18,7 @@ describe('Customer Functionality Test', async () => {
     await customer.currencyField.click()
     await cashTransfer.saveButton.click()
     await browser.pause(5000)
-    await expect(cashTransfer.toastMsg).toBeDisplayed(
+    await expect(cashTransfer.toastMsg).toHaveText(
       'Customer created successfully!'
     )
   })

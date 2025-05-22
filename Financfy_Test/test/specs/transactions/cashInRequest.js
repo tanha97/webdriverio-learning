@@ -1,15 +1,15 @@
-const logIn= require('../../helpers/logIn')
-const transactions = require('../../pageobjects/transactionObject')
-const cashTransfer = require('../../pageobjects/cashTransferObjects')
-const cashInRequest = require('../../pageobjects/cashinRequestObjects')
-
+const logIn = require('../../helpers/logIn')
+const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
+const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
+const cashInRequest = require('../../pageobjects/transactions/cashinRequestObjects')
 
 describe('Financfy Automation Test', () => {
-  xit('Create Cash in Request', async () => {
+  before(async () => {
     await logIn()
-
+  })
+  xit('Create Cash in Request', async () => {
     //Navigate to Cash in Request Tab
-    await transactions.transactionMenu.click()
+    await cashInCashOut.transactionMenu.click()
     await cashInRequest.cashbookSelectionField.click()
     await cashInRequest.cashbookSelectionField.waitForDisplayed({
       timeout: 5000,
@@ -24,22 +24,25 @@ describe('Financfy Automation Test', () => {
     await cashInRequest.amountField.setValue(4000.45)
     await cashInRequest.categoryField.click()
     await cashInRequest.categoryField.waitForDisplayed({ timeout: 5000 })
-    await transactions.categoryOptions.click()
+    await cashInCashOut.categoryOptions.click()
     await cashInRequest.paymentModeField.click()
     await cashInRequest.paymentModeField.waitForDisplayed({ timeout: 5000 })
-    await transactions.receiveModeOptions.click()
+    await cashInCashOut.receiveModeOptions.click()
     await cashInRequest.remarksField.setValue('Cash in request test')
     await cashInRequest.saveButton.click()
     await browser.pause(5000)
+    await expect(cashTransfer.toastMsg).toHaveText(
+      'Successfully created cash in request'
+    )
   })
 
   it('Should show pending status after applying pending filter', async () => {
-    await logIn()
-
     //Navigate to Cash in Request Tab
-    await transactions.transactionMenu.click()
+    await cashInCashOut.transactionMenu.click()
     await cashInRequest.cashbookSelectionField.click()
-    await cashInRequest.cashbookSelectionField.waitForDisplayed({timeout: 5000})
+    await cashInRequest.cashbookSelectionField.waitForDisplayed({
+      timeout: 5000,
+    })
     await cashInRequest.cashbookList.click()
     await cashInRequest.cashInRequestTab.click()
 

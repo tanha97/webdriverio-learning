@@ -1,15 +1,15 @@
-const logIn=require('../helpers/logIn')
-const transactions = require('../pageobjects/transactionObject')
-const cashTransfer=require('../pageobjects/cashTransferObjects')
-const BulkEntries = require('../pageobjects/bulkEntriesObjects')
-
+const logIn = require('../../helpers/logIn')
+const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
+const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
+const BulkEntries = require('../../pageobjects/transactions/bulkEntriesObjects')
 
 describe('Financfy Bulk Entries Page Test', () => {
-  it('Bulk Entries transactions', async () => {
+  before(async () => {
     await logIn()
-
+  })
+  it('Bulk Entries transactions', async () => {
     //Navigate to Bulk Entries Tab
-    await transactions.transactionMenu.click()
+    await cashInCashOut.transactionMenu.click()
     await BulkEntries.bulkEntriesTab.click()
 
     //Create Bulk Entries(1st row)
@@ -56,7 +56,7 @@ describe('Financfy Bulk Entries Page Test', () => {
     await BulkEntries.paymentModeOptions.click()
     await BulkEntries.saveAndNewText.click()
     await browser.pause(5000)
-    await expect(cashTransfer.toastMsg).toBeDisplayed(
+    await expect(cashTransfer.toastMsg).toHaveText(
       'Successfully added transactions entries'
     )
   })

@@ -2,10 +2,16 @@ class Invoice {
   get salesMenu() {
     return $("//a[@id='Sales']")
   }
+  get invoiceTab(){
+    return $("//li[@id='tour_sales_tab_invoice']")
+  }
+  get createInvoiceButton(){
+    return $("//div[@class='flex justify-end gap-2 items-end flex-wrap xl:flex-nowrap']//button[1]")
+  }
   get newTransactionButton() {
     return $("//div[@class='flex justify-end gap-2 items-end']//button[1]")
   }
-  get transactionOptions() {
+  get invoiceOption() {
     return $("//ul[@class='simple-list ']//div[text()='Invoice']")
   }
   get customerField() {
@@ -30,35 +36,58 @@ class Invoice {
     return $("(//div[@aria-label='Choose Saturday, May 24th, 2025'])")
   }
   get productRow1() {
-    return $('//*[@id="parent_container_lineitem_table"]/details/div/div[1]/div[1]/table/tbody/tr[1]/td[3]/div[1]/div[1]')
+    return $(
+      '//*[@id="parent_container_lineitem_table"]/details/div/div[1]/div[1]/table/tbody/tr[1]/td[3]/div[1]/div[1]'
+    )
   }
-
   get productOptions1() {
-    return $("//div[contains(@class, 'standard-select-dropdown__menu-list css-xui19z')]//div[text()='lereve']")
+    return $(
+      "//div[contains(@class, 'standard-select-dropdown__menu-list css-xui19z')]//div[text()='lereve']"
+    )
   }
   get qtyRow1() {
-    return $("//table//tbody/tr[1]/td[5]//input")
+    return $('//table//tbody/tr[1]/td[5]//input')
   }
-  get productRow2(){
-    return $('//*[@id="parent_container_lineitem_table"]/details/div/div[1]/div[1]/table/tbody/tr[2]/td[3]/div[1]/div[1]')
+  get productRow2() {
+    return $(
+      '//*[@id="parent_container_lineitem_table"]/details/div/div[1]/div[1]/table/tbody/tr[2]/td[3]/div[1]/div[1]'
+    )
   }
-  get productOptions2(){
-    return $("//div[contains(@class, 'standard-select-dropdown__menu-list css-xui19z')]//div[text()='Tanha Baby']")
+  get productOptions2() {
+    return $(
+      "//div[contains(@class, 'standard-select-dropdown__menu-list css-xui19z')]//div[text()='Tanha Baby']"
+    )
   }
-  get qtyRow2(){
-    return $("//table//tbody/tr[2]/td[5]//input")
+  get qtyRow2() {
+    return $('//table//tbody/tr[2]/td[5]//input')
   }
   get addLineButton() {
     return $("//div[contains(@class,'flex gap-4')]//button[1]")
   }
-  get shippingCostField(){
+  get shippingCostField() {
     return $("//input[contains(@name,'shipping_cost')]")
   }
-  get saveAndCloseButton(){
+  get saveAndCloseButton() {
     return $("//button[normalize-space()='Save & close']")
   }
-  get toastMsg(){
+  get toastMsg() {
     return $("//div[contains(@class,'Toastify')]")
   }
+  get invoiceActionButton(){
+    return $('//td[text()="BOO94"]/ancestor::tr//button')
+  }
+  get deleteText(){
+    return $("//button[normalize-space()='Delete']")
+  }
+  get confirmationModal(){
+    return $("(//button[@type='button'])[6]")
+  }
+
+ 
+  
+  
+ 
+  
+
 }
 module.exports = new Invoice()

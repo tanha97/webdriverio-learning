@@ -1,11 +1,12 @@
-const logIn= require('../helpers/logIn')
-const cashTransfer = require('../pageobjects/cashTransferObjects')
-const members = require('../pageobjects/memberObjects')
+const logIn= require('../../helpers/logIn')
+const cashTransfer = require('../../pageobjects/cashTransferObjects')
+const members = require('../../pageobjects/memberObjects')
 
-describe('Members Page Test', () => {
+describe('Members Page Test', async () => {
+  before(async () => {
+      await logIn()
+    })
   xit('Search Filter should work', async () => {
-    await logIn()
-
     //Navigate to Members Module
     await members.membersMenu.click()
 
@@ -21,8 +22,6 @@ describe('Members Page Test', () => {
   })
 
   xit('Add Member Create', async () => {
-    await logIn()
-
     //Navigate to Members Module
     await members.membersMenu.click()
 
@@ -33,12 +32,10 @@ describe('Members Page Test', () => {
     await members.roleOptions.click()
     await cashTransfer.saveButton.click()
     await browser.pause(5000)
-    await expect(cashTransfer.toastMsg).toBeDisplayed('Invitation sent successfully')
+    await expect(cashTransfer.toastMsg).toHaveText('Invitation sent successfully')
   })
 
   it('Edit Member', async () => {
-    await logIn()
-
     //Navigate to Members Module
     await members.membersMenu.click()
 
@@ -47,6 +44,6 @@ describe('Members Page Test', () => {
     await cashTransfer.editText.click()
     await cashTransfer.saveButton.click()
     await browser.pause(5000)
-    await expect(cashTransfer.toastMsg).toBeDisplayed('Successfully updated member permission')
+    await expect(cashTransfer.toastMsg).toHaveText('Successfully updated member permission')
   })
 })

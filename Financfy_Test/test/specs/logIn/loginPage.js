@@ -1,6 +1,6 @@
-const logIn = require('../pageobjects/logInObject')
-const cashTransfer = require('../pageobjects/cashTransferObjects')
-const logInHelper = require('../helpers/logIn')
+const logIn = require('../../pageobjects/logInObject')
+const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
+const logInHelper = require('../../helpers/logIn')
 require('dotenv').config()
 
 describe('Financfy Automation Testing', async () => {
@@ -12,11 +12,13 @@ describe('Financfy Automation Testing', async () => {
     await logIn.password.setValue('A12345678as')
     await logIn.signinButton.click()
     await browser.pause(5000)
-    await expect(cashTransfer.toastMsg).toBeDisplayed('password or code is incorrect, you have 4 remaining chances')
+    await expect(cashTransfer.toastMsg).toHaveText(
+      'password or code is incorrect, you have 4 remaining chances'
+    )
   })
 
   it('Login success title page', async () => {
-    await logInHelper()
+    await logInHelper.logIn()
 
     // Wait until Hello text is displayed
     await logIn.helloText.waitForExist()

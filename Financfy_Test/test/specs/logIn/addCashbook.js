@@ -1,5 +1,5 @@
-const cashBook = require('../pageobjects/cashbookObjects')
-const logIn = require('../helpers/logIn')
+const logIn = require('../../helpers/logIn')
+const cashBook = require('../../pageobjects/cashbookObjects')
 
 describe('Financfy Automation Test', () => {
   it('Create a New Cashbook Successfully', async () => {
