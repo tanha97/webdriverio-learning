@@ -23,8 +23,11 @@ class Settings{
     get typeStatusElement(){
         return $("(//table[contains(@class,'table-fixed w-full action-btn-table')])//div[@title='Others']")
     }
+    get paginationText(){
+        return $("//div[@class='pageinfo']")
+    }
     get contactActionButton(){
-        return $("//tr[.//div[text()='Arishaaaaa']]//td[last()]//button")
+        return $("//tr[.//div[text()='Arisha...!']]//td[last()]//button")
     }
     get categoryTab(){
         return $("//li[@id='tour_settings_tab_category']")
@@ -33,7 +36,7 @@ class Settings{
         return $("//button[normalize-space()='Add category']")
     }
     get categoryActionButton(){
-        return $("//tr[.//div[text()='Home Expenses']]//td[last()]//button")
+        return $("//tr[.//div[text()='Home Expenses//']]//td[last()]//button")
     }
     get paymentModeTab(){
         return $("//li[@id='tour_settings_tab_payment-modes']")
@@ -42,7 +45,7 @@ class Settings{
         return $("//button[normalize-space()='Add payment mode']")
     }
     get paymentActionButton(){
-        return $("//tr[.//div[text()='Cashless']]//td[last()]//button")
+        return $("//tr[.//div[text()='New Cashless']]//td[last()]//button")
     }
 
 

@@ -1,4 +1,4 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const cashInRequest = require('../../pageobjects/transactions/cashinRequestObjects')
@@ -6,9 +6,9 @@ const advanceCashOut = require('../../pageobjects/transactions/advanceCashOutObj
 const uploadFile = require('../../helpers/uploadFile')
 
 describe('Financfy Automation Test', () => {
-  before(async () => {
-    await logIn()
-  })
+  // before(async () => {
+  //   await logIn()
+  // })
   it('Create Advance Cash Out', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
@@ -34,7 +34,7 @@ describe('Financfy Automation Test', () => {
     )
   })
 
-  xit('Add cash out from advance cash out', async () => {
+  it('Add cash out from advance cash out', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()
@@ -64,7 +64,7 @@ describe('Financfy Automation Test', () => {
     await expect(advanceCashOut.toastMsg).toHaveText('Cash out successful')
   })
 
-  xit('Create Advance Return from Advance Cash Out', async () => {
+  it('Create Advance Return from Advance Cash Out', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()
@@ -84,7 +84,7 @@ describe('Financfy Automation Test', () => {
     )
   })
 
-  xit('Should show advance cash out list after applying selected contact option', async () => {
+  it('Should show advance cash out list after applying selected contact option', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()
@@ -102,7 +102,7 @@ describe('Financfy Automation Test', () => {
     }
   })
 
-  xit('Should filter the list when select payment mode filter', async () => {
+  it('Should filter the list when select payment mode filter', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()
@@ -122,7 +122,7 @@ describe('Financfy Automation Test', () => {
     await expect(totalCountAfter).not.toBe(totalCountBefore)
   })
 
-  xit('Edit Advance Cash Out', async () => {
+  it('Edit Advance Cash Out', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()
@@ -138,7 +138,7 @@ describe('Financfy Automation Test', () => {
     )
   })
 
-  xit('Delete Advance Cash Out', async () => {
+  it('Delete Advance Cash Out', async () => {
     //Navigate to Advance cash out Tab
     await cashInCashOut.transactionMenu.click()
     await advanceCashOut.advanceCashOutTab.click()

@@ -1,19 +1,20 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const settings = require('../../pageobjects/settingObjects')
 
 describe('Category Page Functionality Test', async () => {
-  beforeEach(async () => {
-    await logIn()
-  })
-  xit('Add category create', async () => {
+  // beforeEach(async () => {
+  //   await logIn()
+  // })
+
+  it('Add category create', async () => {
     //Navigate to Category Tab
     await settings.settingsMenu.click()
     await settings.categoryTab.click()
 
     //Add Category
     await settings.addCategoryButton.click()
-    await settings.nameField.setValue('Home Expenses')
+    await settings.nameField.setValue('Home Expenses//')
     await cashTransfer.saveButton.click()
     await browser.pause(5000)
     await expect(cashTransfer.toastMsg).toHaveText(
@@ -21,7 +22,7 @@ describe('Category Page Functionality Test', async () => {
     )
   })
 
-  xit('Edit Category', async () => {
+  it('Edit Category', async () => {
     //Navigate to Category Tab
     await settings.settingsMenu.click()
     await settings.categoryTab.click()
@@ -37,7 +38,7 @@ describe('Category Page Functionality Test', async () => {
     )
   })
 
-  xit('Delete Category', async () => {
+  it('Delete Category', async () => {
     //Navigate to Category Tab
     await settings.settingsMenu.click()
     await settings.categoryTab.click()

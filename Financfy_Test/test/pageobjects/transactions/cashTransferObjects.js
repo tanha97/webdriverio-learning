@@ -19,7 +19,7 @@ class CashTransfer {
     return $("//input[@name='date']")
   }
   get dateOptions() {
-    return $("(//div[@aria-label='Choose Saturday, May 10th, 2025'])[1]")
+    return $("(//div[@aria-label='Choose Saturday, May 31th, 2025'])[1]")
   }
   get transferViaField() {
     return $(

@@ -1,13 +1,13 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const invoice = require('../../pageobjects/sales/invoiceObject')
-const payment= require('../../pageobjects/sales/paymentObjects')
+
 
 describe('Invoice Functionality Test', async () => {
-  before(async () => {
-    await logIn()
-  })
+  // before(async () => {
+  //   await logIn()
+  // })
   
-  xit('Create a New Invoice Successfully', async () => {
+  it('Create a New Invoice Successfully', async () => {
     await invoice.salesMenu.click()
     await invoice.invoiceTab.click()
     await invoice.createInvoiceButton.click()

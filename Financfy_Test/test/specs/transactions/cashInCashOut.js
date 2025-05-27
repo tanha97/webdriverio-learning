@@ -1,12 +1,12 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const uploadFile = require('../../helpers/uploadFile')
 
 describe('Financfy Automation Test', () => {
-  before(async () => {
-    await logIn()
-  })
+  // before(async () => {
+  //   await logIn()
+  // })
   it('Create Cash In Transactions', async () => {
     // Navigate to Transactions (Cash in tab)
     await cashInCashOut.transactionMenu.click()
@@ -25,7 +25,7 @@ describe('Financfy Automation Test', () => {
     await cashInCashOut.categoryField.waitForDisplayed({ timeout: 5000 })
     await cashInCashOut.categoryOptions.click()
     await cashInCashOut.referenceNoField.setValue('tanha#01')
-    await uploadFile(cashInCashOut.voucherImageField, 'IMG_4827.JPG')
+    await uploadFile(cashInCashOut.voucherImageField, 'image_1.png')
     await expect(cashInCashOut.imageSizeError).toHaveText(
       'File size should be less than 2MB'
     )
@@ -34,7 +34,7 @@ describe('Financfy Automation Test', () => {
     await expect(cashTransfer.toastMsg).toHaveText('Cash in successful')
   })
 
-  xit('Create Cash Out Transaction', async () => {
+  it('Create Cash Out Transaction', async () => {
     // Navigate to Transactions (Cash out tab)
     await cashInCashOut.transactionMenu.click()
     await cashInCashOut.cashOutTab.click()
@@ -49,7 +49,7 @@ describe('Financfy Automation Test', () => {
     await cashInCashOut.cashOutCategoryField.waitForDisplayed({ timeout: 5000 })
     await cashInCashOut.categoryOptions.click()
     await cashInCashOut.referenceNoField.setValue('tanha#02')
-    await uploadFile(cashInCashOut.voucherImageField, 'IMG_4827.JPG')
+    await uploadFile(cashInCashOut.voucherImageField, 'image_1.png')
     await cashInCashOut.cashOutSaveButton.click()
     await browser.pause(5000)
     await expect(cashTransfer.toastMsg).toHaveText('Cash out successful')

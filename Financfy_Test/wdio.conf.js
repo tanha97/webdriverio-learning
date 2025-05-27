@@ -1,3 +1,5 @@
+const session = require('./test/helpers/logIn');
+
 exports.config = {
   
   runner: 'local',
@@ -16,10 +18,48 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: [
-    './test/specs/**/productsAndServices/products.js',
+
+//  suites: {
+//     smoke: [
+//         './test/specs/loginPage.js',
+//         './test/specs/membersPage.js'
+//     ],
+//     regression: [
+//         './test/specs/addCashbook.js',
+//         './test/specs/advanceCashOut.js',
+//         './test/specs/cashInRequest.js',
+//         './test/specs/cashTransfer.js',
+//         './test/specs/transactions.js'
+//     ],
+//     all: [
+//         './test/specs/**/*.js'
+//     ]
+// },
+suites:{
+
+  all: [
+    './test/specs/**/loginPage.js',
+    './test/specs/**/addCashbook.js',
+    './test/specs/**/cashInCashOut.js',
+    './test/specs/**/cashTransfer.js',
+    './test/specs/**/bulkEntries.js',
+    './test/specs/**/cashInRequest.js',
+    './test/specs/**/advanceCashOut.js',
+    './test/specs/**/customers.js',
+    './test/specs/**/products.js',
+    './test/specs/**/services.js',
+    './test/specs/**/allSales.js',
+    './test/specs/**/invoice.js',
+    './test/specs/**/payment.js',
+    './test/specs/**/membersPage.js',
+    './test/specs/**/transaction.js',
+    './test/specs/**/contacts.js',
+    './test/specs/**/category.js',
+    './test/specs/**/paymentMode.js',
+    // './test/specs/**/poTest.js
     // 'test/specs/poTest.js'
-  ],
+  ]
+},
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -293,4 +333,19 @@ exports.config = {
    */
   // afterAssertion: function(params) {
   // }
+
+
+ before: async function () {
+    //await browser.url('https://your-login-url.com');
+    await session();
+
+    // Optionally save session storage or cookies
+    global.authCookies = await browser.getCookies();
+  },
+
+  beforeTest: async function () {
+    if (global.authCookies) {
+      await browser.setCookies(global.authCookies);
+    }
+  }
 }

@@ -32,6 +32,25 @@ class Products{
     get saveButton(){
         return $("//button[@form='product_form']")
     }
+    get actionButton(){
+        return $("//tr[.//div[text()='Test Product#']]//td[last()]//button")
+    }
+    get categoryFilterField(){
+        return $("//div[@class='flex filter-input-select__value-container filter-input-select__value-container--is-multi css-1p7kgf6']")
+    }
+    get dropDownFilterOptions1(){
+        return $("//div[@class='filter-input-select filter-input-select__menu css-1m4ow6h-menu']//div[text()='Product category@@']")
+    }
+    get dropDownFilterOptions2(){
+        return $("//div[@class='filter-input-select filter-input-select__menu css-1m4ow6h-menu']//div[text()='Men']")
+    }
+    get filterButton(){
+        return $("//button[@type='submit']")
+    }
+    get categoryElement(){
+        return $("//p[@class='overflow-hidden text-clip text-xs-768 leading-none'][normalize-space()='Product category@@']")
+    }
+    
 
 }
 module.exports=new Products()

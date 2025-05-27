@@ -19,7 +19,7 @@ class Payment{
         return $("(//button[@type='button'])//span[text()='Confirm']")
     }
     get invoiceActionButton(){
-        return  $('//td[text()="BOO94"]/ancestor::tr//button')
+        return  $('//td[text()="BOO93"]/ancestor::tr//button')
     }
     get receivePaymentOption(){
         return $("//div[contains(@class,'action-pop-up')]//button[span[text()='Receive payment']]")
@@ -28,7 +28,7 @@ class Payment{
         return $("(//input[@name='payment_amount'])[1]")
     }
     get paymentActionButton(){
-        return $('//td[text()="55"]/ancestor::tr//button')
+        return $('//td[text()="68"]/ancestor::tr//button')
     }
     get editText(){
         return $("//div[contains(@class,'action-pop-up')]//button[span[text()='Edit']]")

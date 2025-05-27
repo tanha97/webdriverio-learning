@@ -1,13 +1,13 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashTransfer = require('../../pageobjects/cashTransferObjects')
 const customer = require('../../pageobjects/customerObject')
 
 describe('Customer Functionality Test', async () => {
-  before(async () => {
-    logIn()
-  })
+  // before(async () => {
+  //   logIn()
+  // })
 
-  xit('Create a New Customer Successfully', async () => {
+  it('Create a New Customer Successfully', async () => {
     await customer.customerMenu.click()
     await customer.addCustomer.click()
     await customer.displayNameField.setValue('Tanvir')
@@ -35,7 +35,7 @@ describe('Customer Functionality Test', async () => {
     )
   })
 
-  it('Create Invoice from Customer Page', async ()=>{
+  xit('Create Invoice from Customer Page', async ()=>{
     await customer.customerMenu.click()
     await customer.customerActionButton.click()
     await customer.createInvoiceText.click()

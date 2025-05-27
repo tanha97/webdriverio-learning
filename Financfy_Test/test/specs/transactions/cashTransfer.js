@@ -1,14 +1,14 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const advanceCashOut = require('../../pageobjects/transactions/advanceCashOutObjects')
 const uploadFile = require('../../helpers/uploadFile')
 
 describe('Financfy Automation Test', () => {
-  before(async () => {
-    await logIn()
-  })
-  xit('Create Cash Transfer', async () => {
+  // before(async () => {
+  //   await logIn()
+  // })
+  it('Create Cash Transfer', async () => {
     //Navigate to Cash Transfer Tab
     await cashInCashOut.transactionMenu.click()
     await cashTransfer.transferTab.click()
@@ -19,7 +19,6 @@ describe('Financfy Automation Test', () => {
     await cashTransfer.cashTransferTo.waitForDisplayed({ timeout: 5000 })
     await cashTransfer.transferToOptions.click()
     await cashTransfer.dateField.click()
-    await cashTransfer.dateField.waitForDisplayed({ timeout: 5000 })
     await cashTransfer.dateOptions.click()
     await cashInCashOut.amountField.setValue(2000)
     await cashTransfer.transferViaField.click()
@@ -35,7 +34,7 @@ describe('Financfy Automation Test', () => {
     )
   })
 
-  xit('Edit Cash Transfer', async () => {
+  it('Edit Cash Transfer', async () => {
     //Navigate to Cash Transfer
     await cashInCashOut.transactionMenu.click()
     await cashTransfer.transferTab.click()
@@ -51,7 +50,7 @@ describe('Financfy Automation Test', () => {
     )
   })
 
-  xit('Delete Cash Transfer', async () => {
+  it('Delete Cash Transfer', async () => {
     //Navigate to Cash Transfer
     await cashInCashOut.transactionMenu.click()
     await cashTransfer.transferTab.click()

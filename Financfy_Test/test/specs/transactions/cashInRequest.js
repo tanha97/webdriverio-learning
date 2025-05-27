@@ -1,13 +1,13 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const cashInRequest = require('../../pageobjects/transactions/cashinRequestObjects')
 
 describe('Financfy Automation Test', () => {
-  before(async () => {
-    await logIn()
-  })
-  xit('Create Cash in Request', async () => {
+  // before(async () => {
+  //   await logIn()
+  // })
+  it('Create Cash in Request', async () => {
     //Navigate to Cash in Request Tab
     await cashInCashOut.transactionMenu.click()
     await cashInRequest.cashbookSelectionField.click()
@@ -19,7 +19,6 @@ describe('Financfy Automation Test', () => {
     await cashInRequest.cashInRequestDropdown.click()
     await cashInRequest.cashInRequestButton.click()
     await cashTransfer.dateField.click()
-    await cashTransfer.dateField.waitForDisplayed({ timeout: 5000 })
     await cashTransfer.dateOptions.click()
     await cashInRequest.amountField.setValue(4000.45)
     await cashInRequest.categoryField.click()

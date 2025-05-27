@@ -1,12 +1,13 @@
-const logIn= require('../../helpers/logIn')
+//const logIn= require('../../helpers/logIn')
 const cashTransfer = require('../../pageobjects/cashTransferObjects')
 const members = require('../../pageobjects/memberObjects')
 
 describe('Members Page Test', async () => {
-  before(async () => {
-      await logIn()
-    })
-  xit('Search Filter should work', async () => {
+  // before(async () => {
+  //     await logIn()
+  //   })
+
+  it('Search Filter should work', async () => {
     //Navigate to Members Module
     await members.membersMenu.click()
 
@@ -21,13 +22,13 @@ describe('Members Page Test', async () => {
     }
   })
 
-  xit('Add Member Create', async () => {
+  it('Add Member Create', async () => {
     //Navigate to Members Module
     await members.membersMenu.click()
 
     //Add Member
     await members.addMemberButton.click()
-    await members.mobileNumberField.setValue('01700000002')
+    await members.mobileNumberField.setValue('01700000007')
     await members.memberRoleField.click()
     await members.roleOptions.click()
     await cashTransfer.saveButton.click()

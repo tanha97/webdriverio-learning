@@ -31,7 +31,7 @@ class AdvanceCashOut {
     return $("input[name='transaction_at']")
   }
   get dateOptions(){
-    return $("(//div[@aria-label='Choose Sunday, May 11th, 2025'])")
+    return $("(//div[@aria-label='Choose Sunday, May 31th, 2025'])")
   }
   
   get taxField(){

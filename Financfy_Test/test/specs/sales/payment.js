@@ -1,13 +1,13 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const invoice = require('../../pageobjects/sales/invoiceObject')
 const payment = require('../../pageobjects/sales/paymentObjects')
 
 describe('Payment Functionality Test', async () => {
-  before(async () => {
-    await logIn()
-  })
-  xit('Create a Payment Successfully', async () => {
+  // before(async () => {
+  //   await logIn()
+  // })
+  it('Create a Payment Successfully', async () => {
     await invoice.salesMenu.click()
     await invoice.newTransactionButton.click()
     await payment.paymentOption.click()
@@ -26,7 +26,7 @@ describe('Payment Functionality Test', async () => {
     )
   })
 
-  xit('Payment from Invoice Action Button', async () => {
+  it('Payment from Invoice Action Button', async () => {
     await invoice.salesMenu.click()
     await payment.invoiceActionButton.click()
     await browser.pause(5000)
@@ -41,7 +41,7 @@ describe('Payment Functionality Test', async () => {
     )
   })
 
-  xit('Edit Payment', async () => {
+  it('Edit Payment', async () => {
     await invoice.salesMenu.click()
     await payment.paymentActionButton.click()
     await payment.editText.click()

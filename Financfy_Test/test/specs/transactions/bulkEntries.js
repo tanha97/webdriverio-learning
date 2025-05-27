@@ -1,12 +1,12 @@
-const logIn = require('../../helpers/logIn')
+//const logIn = require('../../helpers/logIn')
 const cashInCashOut = require('../../pageobjects/transactions/cashInCashOutObjects')
 const cashTransfer = require('../../pageobjects/transactions/cashTransferObjects')
 const BulkEntries = require('../../pageobjects/transactions/bulkEntriesObjects')
 
 describe('Financfy Bulk Entries Page Test', () => {
-  before(async () => {
-    await logIn()
-  })
+  // before(async () => {
+  //   await logIn()
+  // })
   it('Bulk Entries transactions', async () => {
     //Navigate to Bulk Entries Tab
     await cashInCashOut.transactionMenu.click()

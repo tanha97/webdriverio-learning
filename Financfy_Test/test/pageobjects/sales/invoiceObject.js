@@ -33,7 +33,7 @@ class Invoice {
     return $("(//input[@name='due_date'])[1]")
   }
   get dateOptions() {
-    return $("(//div[@aria-label='Choose Saturday, May 24th, 2025'])")
+    return $("(//div[@aria-label='Choose Saturday, May 31th, 2025'])")
   }
   get productRow1() {
     return $(

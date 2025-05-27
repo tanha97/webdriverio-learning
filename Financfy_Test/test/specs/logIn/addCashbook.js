@@ -1,9 +1,9 @@
-const logIn = require('../../helpers/logIn')
-const cashBook = require('../../pageobjects/cashbookObjects')
+//const logIn = require('../../helpers/logIn')
+const cashBook = require('../../pageobjects/logIn/cashbookObjects')
 
 describe('Financfy Automation Test', () => {
   it('Create a New Cashbook Successfully', async () => {
-    await logIn()
+    //await logIn()
 
     // Create a new cashbook
     await cashBook.addCashbook.click()
